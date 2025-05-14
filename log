@@ -37,3 +37,17 @@ sudoku.c:54:11: error: unused variable 'new' [-Werror=unused-variable]
            ^~~
 cc1.exe: all warnings being treated as errors
 63a7dfa
+Wed, May 14, 2025  8:37:37 AM: 
+ sudoku.c | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'get_adj_nodes':
+sudoku.c:63:25: error: implicit declaration of function 'add' [-Werror=implicit-function-declaration]
+                         add(list, new);
+                         ^~~
+sudoku.c:55:15: error: unused variable 'l' [-Werror=unused-variable]
+     int i,j,k,l;
+               ^
+cc1.exe: all warnings being treated as errors
+c900e95
