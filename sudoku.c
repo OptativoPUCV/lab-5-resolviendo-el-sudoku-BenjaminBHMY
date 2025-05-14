@@ -45,24 +45,37 @@ void print_node(Node* n){
 
 int is_valid(Node* n){
     int i,j,k,l;
-    int row[9], col[9], box[9];
+    int fila[9], col[9], box[9];
 
     for(i=0;i<9;i++){
         for(j=0;j<9;j++){
-            row[j]=0;
+            fila[j]=0;
             col[j]=0;
             box[j]=0;
         }
         for(j=0;j<9;j++){
             if(n->sudo[i][j]>0){
-                if(row[n->sudo[i][j]-1]==1)
+                if(fila[n->sudo[i][j]-1]==1)
                     return 0;
-                row[n->sudo[i][j]-1]=1;
+                fila[n->sudo[i][j]-1]=1;
             }
             if(n->sudo[j][i]>0){
                 if(col[n->sudo[j][i]-1]==1)
                     return 0;
                 col[n->sudo[j][i]-1]=1;
+            }
+        }
+        for(k=0;k<3;k++){
+            for(l=0;l<3;l++){
+                for(j=0;j<9;j++)
+                    box[j]=0;
+                for(j=0;j<3;j++){
+                    if(n->sudo[k*3+j][l*3+j]>0){
+                        if(box[n->sudo[k*3+j][l*3+j]-1]==1)
+                            return 0;
+                        box[n->sudo[k*3+j][l*3+j]-1]=1;
+                    }
+                }
             }
         }
     }
