@@ -74,3 +74,20 @@ Wed, May 14, 2025  8:47:11 AM:
  tests:  5|3
 total_score: 35/70
 30a3bef
+Wed, May 14, 2025  8:48:19 AM: 
+ sudoku.c | 13 -------------
+ 1 file changed, 13 deletions(-)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'is_valid':
+sudoku.c:48:25: error: variable 'box' set but not used [-Werror=unused-but-set-variable]
+     int row[9], col[9], box[9];
+                         ^~~
+sudoku.c:47:15: error: unused variable 'l' [-Werror=unused-variable]
+     int i,j,k,l;
+               ^
+sudoku.c:47:13: error: unused variable 'k' [-Werror=unused-variable]
+     int i,j,k,l;
+             ^
+cc1.exe: all warnings being treated as errors
+b728275

@@ -65,19 +65,6 @@ int is_valid(Node* n){
                 col[n->sudo[j][i]-1]=1;
             }
         }
-        for(k=0;k<3;k++){
-            for(l=0;l<3;l++){
-                for(j=0;j<9;j++)
-                    box[j]=0;
-                for(j=0;j<3;j++){
-                    if(n->sudo[k*3+j][l*3+j]>0){
-                        if(box[n->sudo[k*3+j][l*3+j]-1]==1)
-                            return 0;
-                        box[n->sudo[k*3+j][l*3+j]-1]=1;
-                    }
-                }
-            }
-        }
     }
 
     return 1;
