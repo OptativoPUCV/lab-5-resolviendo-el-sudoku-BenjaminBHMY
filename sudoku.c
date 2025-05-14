@@ -60,9 +60,9 @@ List* get_adj_nodes(Node* n) {
                 for (k = 1; k <= 9; k++) {
                     new = copy(n);
                     new->sudo[i][j] = k;
-                    add(list, new);
+                    pushBack(list, new); 
                 }
-                return list;
+                return list; 
             }
         }
     }
