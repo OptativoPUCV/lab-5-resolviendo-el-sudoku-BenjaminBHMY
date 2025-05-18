@@ -57,8 +57,29 @@ int is_valid(Node* n){
                 if (fila[num_fila] == 1) return 0; // Repetido en fila
                 fila[num_fila] = 1;
             }
+            if (num_col > 0) {
+                if (col[num_col] == 1) return 0; // Repetido en columna
+                col[num_col] = 1;
+            }
         }
     }
+
+    //Revisar submatrices 3x3
+    for (k = 0; k < 3; k++) {
+        for (l = 0; l < 3; l++) {
+            int subMat[10] = {0};
+            for (i = 0; i < 3; i++) {
+                for (j = 0; j < 3; j++) {
+                    int num = n->sudo[k * 3 + i][l * 3 + j];
+                    if (num > 0) {
+                        if (subMat[num] == 1) return 0; // Repetido en subcuadrante
+                        subMat[num] = 1;
+                    }
+                }
+            }
+        }
+    }
+    return 1;
 }
 
 
