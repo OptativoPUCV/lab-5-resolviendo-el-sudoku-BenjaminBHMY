@@ -128,7 +128,7 @@ Node* DFS(Node* initial, int* cont){
         Node* current = (Node*) top(stack);
         pop(stack);
         (*cont)++;
-        
+
         if (is_final(current)) {
             while (!is_empty(stack)) {
                 Node* temp = (Node*) top(stack);
@@ -137,6 +137,17 @@ Node* DFS(Node* initial, int* cont){
             }
             return current;
         }
+
+        List* adj_nodes = get_adj_nodes(current);
+        void *ptr = first(adj_nodes);
+        while (ptr != NULL) {
+            push(stack, ptr);
+            ptr = next(adj_nodes);
+        }
+        free(current);
+        free(adj_nodes);
+    }
+
     return NULL;
 }
 
