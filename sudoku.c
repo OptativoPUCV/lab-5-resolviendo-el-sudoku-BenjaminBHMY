@@ -50,6 +50,14 @@ int is_valid(Node* n){
     for (i = 0; i < 9; i++) {
         int fila[10] = {0};
         int col[10] = {0};
+        for (j = 0; j < 9; j++) {
+            int num_fila = n->sudo[i][j];
+            int num_col = n->sudo[j][i];
+            if (num_fila > 0) {
+                if (fila[num_fila] == 1) return 0; // Repetido en fila
+                fila[num_fila] = 1;
+            }
+        }
     }
 }
 
